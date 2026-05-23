@@ -1,0 +1,39 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (NUNCA subir)
+.env
+.env.local
+.env.*.local
+
+# Datos generados en runtime
+data/*
+!data/.gitkeep
+logs/*
+!logs/.gitkeep
+*.log
+
+# Artefactos de pruebas y auditoría
+admin.txt
+user.txt
+cookies.txt
+*.cookies
+audit_report.json
+audit_results.json
+sqlmap_*.txt
+scratch/
+
+# Editor / IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Tests
+coverage/
+.nyc_output/
