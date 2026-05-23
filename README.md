@@ -288,5 +288,5 @@ finanzas-v4/
 ## 📜 Licencia y autoría
 
 Proyecto académico individual · Curso 2025-26
-Universidad San Jorge · 2.º Ingeniería en Ciberseguridad
+Universidad San Jorge · 3.º Doble grado en Ingeniería informática y Ingeniería de la Ciberseguridad
 Asignatura: Diseño y Desarrollo Web Seguro
