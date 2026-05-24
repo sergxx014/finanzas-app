@@ -285,6 +285,23 @@ finanzas-v4/
 
 ---
 
+## Acceso desde dispositivos móviles en red local
+
+Al acceder desde un móvil por IP local (ej. `http://192.168.1.X:3007`), 
+es posible que los estilos CSS no carguen correctamente.
+
+**Causa:** La cabecera `Strict-Transport-Security (HSTS)` configurada por 
+Helmet indica al navegador que el sitio solo debe servirse por HTTPS. 
+Al acceder por HTTP en red local, el navegador bloquea los recursos estáticos 
+por política de seguridad.
+
+**Solución en desarrollo:** Acceder desde el mismo equipo en 
+`http://localhost:3007`, donde el navegador no aplica HSTS.
+
+**En producción** este comportamiento es el correcto: la app debe servirse 
+por HTTPS con un certificado SSL válido, momento en el que HSTS protege 
+activamente contra ataques man-in-the-middle.
+
 ## 📜 Licencia y autoría
 
 Proyecto académico individual · Curso 2025-26
