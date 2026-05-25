@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Iniciar sesión — FinanzasApp</title>
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="auth-page">
+<main>
+<div class="auth-card">
+  <a href="/" class="auth-logo">💰 FinanzasApp</a>
+  <h1 class="auth-title">Bienvenido/a de vuelta</h1>
+  <p class="auth-sub">Inicia sesión para ver tus finanzas</p>
+
+  <div class="alert alert-error" id="err-box"></div>
+
+  <div class="form-group">
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" class="form-control" placeholder="tu@email.com" autocomplete="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" class="form-control" placeholder="••••••••" autocomplete="current-password">
+  </div>
+
+  <button class="btn btn-primary" style="width:100%;margin-top:.25rem" id="btn-login">Iniciar sesión</button>
+
+  <p style="text-align:center;margin-top:.75rem;font-size:.82rem">
+    <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
+  </p>
+
+  <p class="auth-foot">¿Sin cuenta? <a href="/register">Regístrate gratis</a></p>
+  <p style="text-align:center;margin-top:.6rem;font-size:.75rem;color:var(--dim)">
+    <a href="/privacidad">Privacidad</a> · <a href="/cookies">Cookies</a> · <a href="/aviso-legal">Aviso legal</a>
+  </p>
+</div>
+</main>
+
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-inner">
+    <p>Usamos <strong>cookies técnicas</strong> de sesión imprescindibles. <a href="/cookies">Más información</a></p>
+    <div class="cookie-btns">
+      <button id="btn-accept-all" class="btn btn-primary btn-sm">Aceptar todo</button>
+      <button id="btn-accept-essential" class="btn btn-ghost btn-sm">Solo esenciales</button>
+    </div>
+  </div>
+</div>
+<script src="/js/cookies.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>
