@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Política de privacidad — FinanzasApp</title>
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-brand">💰 FinanzasApp</a>
+  <div class="nav-links"><a href="/login">Iniciar sesión</a><a href="/register" class="btn btn-primary">Registrarse</a></div>
+</nav>
+<main class="legal-page">
+  <h1>Política de Privacidad</h1>
+  <p class="legal-upd">Última actualización: mayo 2025 · RGPD (UE) 2016/679 + LOPDGDD LO 3/2018</p>
+ 
+  <h2>1. Responsable del tratamiento</h2>
+  <p><strong>FinanzasApp</strong> · C/ Ejemplo 1, 50001 Zaragoza, España · privacidad@finanzasapp.example</p>
+ 
+  <h2>2. Datos que recogemos (minimización, art. 5.1.c RGPD)</h2>
+  <ul>
+    <li><strong>Nombre y email</strong> — identificación en el sistema</li>
+    <li><strong>Contraseña</strong> — almacenada exclusivamente como hash irreversible (bcrypt). Nunca en texto plano</li>
+    <li><strong>Transacciones</strong> — datos financieros que introduces voluntariamente</li>
+    <li><strong>Registro de consentimiento</strong> — fecha, IP y user-agent al registrarse (base: obligación legal, art. 6.1.c)</li>
+    <li><strong>Logs de seguridad</strong> — IP y hora de acceso (base: interés legítimo, art. 6.1.f)</li>
+  </ul>
+  <p>No recogemos datos de categoría especial (salud, ideología, biometría).</p>
+  <p>El personal con rol de administrador puede acceder, con fines de gestión y mantenimiento del servicio, a los siguientes datos de cualquier cuenta: nombre, email, rol, estado de la cuenta (activa/inactiva) y fecha del último inicio de sesión. Los administradores <strong>no tienen acceso</strong> a contraseñas, datos financieros ni logs de seguridad individuales.</p>
+ 
+  <h2>3. Base legal del tratamiento (art. 6 RGPD)</h2>
+  <table class="legal-table">
+    <tr><th>Finalidad</th><th>Base legal</th><th>Artículo</th></tr>
+    <tr><td>Gestión de cuenta y transacciones</td><td>Ejecución de contrato</td><td>Art. 6.1.b</td></tr>
+    <tr><td>Seguridad del servicio y logs</td><td>Interés legítimo</td><td>Art. 6.1.f</td></tr>
+    <tr><td>Registro de consentimientos</td><td>Obligación legal</td><td>Art. 6.1.c</td></tr>
+    <tr><td>Acceso administrativo a datos de cuenta (consulta y gestión del estado)</td><td>Interés legítimo</td><td>Art. 6.1.f</td></tr>
+  </table>
+  <p><strong>No usamos tus datos para publicidad, perfilado ni cesión a terceros.</strong></p>
+ 
+  <h2>4. Tus derechos ARCO-POL (arts. 15-22 RGPD)</h2>
+  <ul>
+    <li><strong>Acceso (art. 15)</strong> — ver todos tus datos</li>
+    <li><strong>Rectificación (art. 16)</strong> — corregir datos desde tu perfil</li>
+    <li><strong>Supresión / derecho al olvido (art. 17)</strong> — botón "Eliminar cuenta" en Mi cuenta</li>
+    <li><strong>Portabilidad (art. 20)</strong> — exportar JSON desde Mi cuenta</li>
+    <li><strong>Oposición (art. 21)</strong> — escribe a privacidad@finanzasapp.example</li>
+  </ul>
+  <p>Respuesta en máx. 1 mes (art. 12). También puedes reclamar ante la <strong>AEPD</strong> (www.aepd.es).</p>
+ 
+  <h2>5. Conservación de datos (art. 5.1.e)</h2>
+  <ul>
+    <li>Datos de cuenta y transacciones: mientras la cuenta esté activa</li>
+    <li>Tras eliminar la cuenta: supresión inmediata de todos los datos</li>
+    <li>Logs de seguridad: máx. 90 días con rotación automática</li>
+  </ul>
+ 
+  <h2>6. Medidas de seguridad (art. 5.1.f)</h2>
+  <ul>
+    <li>Contraseñas hasheadas con bcrypt (factor 12)</li>
+    <li>Comunicaciones cifradas con TLS (HTTPS en producción)</li>
+    <li>Sesiones con HttpOnly, Secure y SameSite</li>
+    <li>Control de acceso por rol en cada operación</li>
+    <li>Protección contra fuerza bruta (rate limiting)</li>
+    <li>Cabeceras HTTP de seguridad (CSP, HSTS, X-Frame-Options)</li>
+  </ul>
+ 
+  <h2>7. Transferencias internacionales</h2>
+  <p>No se realizan transferencias fuera del EEE. Los datos se almacenan en servidores en España/UE.</p>
+</main>
+<footer class="legal-footer"><a href="/">Inicio</a> · <a href="/privacidad">Privacidad</a> · <a href="/cookies">Cookies</a> · <a href="/aviso-legal">Aviso legal</a></footer>
+</body>
+</html>
