@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Panel Admin — FinanzasApp</title>
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="auth-page">
+<main style="max-width:900px;margin:2rem auto;padding:0 1rem">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem">
+    <h1 style="color:var(--accent)">⚙️ Panel de Administración</h1>
+    <div>
+      <a href="/dashboard" class="btn btn-ghost btn-sm">← Dashboard</a>
+      <button id="btn-logout" class="btn btn-danger btn-sm" style="margin-left:.5rem">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-hd"><h3>Usuarios registrados</h3><span id="user-count" style="color:var(--dim);font-size:.85rem"></span></div>
+    <div id="users-body"><div class="empty">Cargando...</div></div>
+  </div>
+
+  <div class="alert alert-error" id="err-box" style="margin-top:1rem"></div>
+</main>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>
