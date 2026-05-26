@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dashboard — FinanzasApp</title>
+<link rel="stylesheet" href="/css/main.css">
+<script src="/js/chart.umd.min.js"></script>
+</head>
+<body class="dashboard">
+<a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <a href="/" class="sidebar-logo">💰 FinanzasApp</a>
+  <div class="sidebar-user">
+    <div class="s-name" id="s-name">—</div>
+    <span class="s-role">Usuario</span>
+  </div>
+  <div class="sidebar-nav">
+    <button class="nav-item active" data-section="overview"><span class="ico">📊</span>Resumen</button>
+    <button class="nav-item" data-section="transactions"><span class="ico">📋</span>Transacciones</button>
+    <button class="nav-item" data-section="budgets"><span class="ico">🎯</span>Presupuestos</button>
+    <button class="nav-item" data-section="charts"><span class="ico">📈</span>Gráficas</button>
+    <button class="nav-item" data-section="account"><span class="ico">👤</span>Mi cuenta</button>
+  </div>
+  <div class="sidebar-foot">
+    <button class="btn-out" id="btn-logout">🚪 Cerrar sesión</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main" id="main">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:.85rem">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">☰</button>
+      <span class="topbar-title" id="page-title">Resumen</span>
+    </div>
+    <div class="topbar-right">
+      <input type="month" id="month-filter">
+      <button class="btn btn-primary btn-sm" id="btn-new-tx">+ Nueva transacción</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="section active" id="sec-overview"></div>
+    <div class="section" id="sec-transactions"></div>
+    <div class="section" id="sec-budgets"></div>
+    <div class="section" id="sec-charts"></div>
+    <div class="section" id="sec-account"></div>
+  </div>
+</div>
+
+<!-- TRANSACTION MODAL -->
+<div class="overlay" id="tx-overlay">
+  <div class="modal">
+    <div class="modal-hd">
+      <h2 id="tx-modal-title">Nueva transacción</h2>
+      <button class="close-btn" id="tx-close" aria-label="Cerrar ventana">×</button>
+    </div>
+    <div class="type-toggle">
+      <button class="type-btn active-inc" id="btn-type-inc" type="button">📈 Ingreso</button>
+      <button class="type-btn" id="btn-type-exp" type="button">📉 Gasto</button>
+    </div>
+    <div class="alert alert-error" id="tx-err"></div>
+    <div class="form-group"><label>Importe (€)</label><input type="number" id="tx-amount" class="form-control" placeholder="0.00" step="0.01" min="0.01"></div>
+    <div class="form-group"><label>Categoría</label><select id="tx-cat" class="form-control"></select></div>
+    <div class="form-group"><label>Descripción (opcional)</label><input type="text" id="tx-desc" class="form-control" placeholder="Ej: Supermercado" maxlength="200"></div>
+    <div class="form-group"><label>Fecha</label><input type="date" id="tx-date" class="form-control"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="tx-cancel">Cancelar</button>
+      <button class="btn btn-primary" id="tx-save">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- BUDGET MODAL -->
+<div class="overlay" id="bud-overlay">
+  <div class="modal">
+    <div class="modal-hd">
+      <h2>Nuevo presupuesto</h2>
+      <button class="close-btn" id="bud-close" aria-label="Cerrar ventana">×</button>
+    </div>
+    <div class="form-group"><label>Categoría de gasto</label><select id="bud-cat" class="form-control"></select></div>
+    <div class="form-group"><label>Límite mensual (€)</label><input type="number" id="bud-amount" class="form-control" placeholder="200" step="0.01" min="1"></div>
+    <div class="form-group"><label>Mes</label><input type="month" id="bud-month" class="form-control"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="bud-cancel">Cancelar</button>
+      <button class="btn btn-primary" id="bud-save">Guardar presupuesto</button>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
