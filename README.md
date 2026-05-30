@@ -141,7 +141,7 @@ Ver siguiente sección.
 ## 👑 Crear un usuario administrador
 El endpoint público de registro **nunca acepta `role: admin`** (es ignorado por la validación con `stripUnknown` para evitar escalada de privilegios desde la web). La creación de administradores se hace por línea de comandos:
 ```bash
-node scripts/create-admin.js "Nombre del Admin" admin@finanzas.local
+node scripts/create-admin.js "Nombre del Admin" {email del admin (sin las llaves)}
 ```
 El script pedirá la contraseña de forma interactiva (sin eco en pantalla) y la solicitará dos veces para confirmar.
 
