@@ -65,7 +65,7 @@ Levanta el servidor web + MySQL en un solo paso:
 
 ```bash
 git clone <url-del-repositorio>
-cd finanzas-v4
+cd finanzas-app
 
 # 1. Configurar variables de entorno
 cp .env.example .env
@@ -91,7 +91,7 @@ docker-compose down -v         # elimina también los datos de MySQL
 ```bash
 # 1. Clonar e instalar dependencias
 git clone <url-del-repositorio>
-cd finanzas-v4
+cd finanzas-app
 npm install
 
 # 2. Configurar .env
