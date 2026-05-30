@@ -3,10 +3,12 @@
  * Script de creación de usuarios administradores.
  *
  * Uso:
- *   node scripts/create-admin.js <nombre> <email> <password>
+ *   node scripts/create-admin.js <nombre> <email>
  *
  * Ejemplo:
- *   node scripts/create-admin.js "Admin" admin@finanzas.local "Admin@12345"
+ *   node scripts/create-admin.js "Admin" admin@finanzas.local
+ *
+ * El script pedirá la contraseña de forma interactiva (sin eco en pantalla).
  *
  * El endpoint público /api/auth/register nunca acepta el campo 'role' (Joi
  * lo elimina con stripUnknown), por lo que ningún atacante puede registrarse
@@ -20,13 +22,50 @@ const db = require('../src/utils/db');
 
 const ROUNDS = 12;
 
-async function main() {
-  const [name, email, password] = process.argv.slice(2);
+function promptPassword(label) {
+  return new Promise((resolve) => {
+    process.stdout.write(label);
+    let pwd = '';
 
-  if (!name || !email || !password) {
+    const onData = (ch) => {
+      ch = ch.toString();
+      if (ch === '\n' || ch === '\r') {
+        process.stdout.write('\n');
+        process.stdin.setRawMode(false);
+        process.stdin.pause();
+        process.stdin.removeListener('data', onData);
+        resolve(pwd);
+      } else if (ch === '\u0003') {
+        process.exit(0);
+      } else if (ch === '\x7f') {
+        pwd = pwd.slice(0, -1);
+      } else {
+        pwd += ch;
+      }
+    };
+
+    process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', onData);
+  });
+}
+
+async function main() {
+  const [name, email] = process.argv.slice(2);
+
+  if (!name || !email) {
     console.error('\n❌ Faltan argumentos.\n');
-    console.error('Uso: node scripts/create-admin.js <nombre> <email> <password>');
-    console.error('Ej.: node scripts/create-admin.js "Admin" admin@finanzas.local "Admin@12345"\n');
+    console.error('Uso: node scripts/create-admin.js <nombre> <email>');
+    console.error('Ej.: node scripts/create-admin.js "Admin" admin@finanzas.local\n');
+    process.exit(1);
+  }
+
+  const password = await promptPassword('Contraseña del admin: ');
+  const confirm  = await promptPassword('Confirmar contraseña:  ');
+
+  if (password !== confirm) {
+    console.error('\n❌ Las contraseñas no coinciden.\n');
     process.exit(1);
   }
 
