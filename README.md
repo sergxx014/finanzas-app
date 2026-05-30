@@ -80,8 +80,8 @@ docker-compose up -d --build
 
 Para detener:
 ```bash
-docker-compose down            # mantiene los datos
-docker-compose down -v         # elimina también los datos de MySQL
+sudo docker-compose down            # mantiene los datos
+sudo docker-compose down -v         # elimina también los datos de MySQL
 ```
 
 ---
