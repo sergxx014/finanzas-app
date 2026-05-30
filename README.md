@@ -197,7 +197,7 @@ Los tests usan un mock de BD en memoria (no requieren MySQL).
 El script `audit.sh` ejecuta una batería de comprobaciones contra el servidor en ejecución:
 
 ```bash
-./audit.sh        # con el servidor levantado en localhost:3000
+./audit.sh        # con el servidor levantado en localhost:3007
 ```
 
 Verifica cabeceras (CSP, HSTS, XFO, etc.), control de acceso, validación de entrada, rate limiting, CORS, páginas legales RGPD y limpieza de logs.
