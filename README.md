@@ -75,7 +75,7 @@ cp .env.example .env
 # 2. Levantar la aplicación
 docker-compose up -d --build
 
-# La app está disponible en http://localhost:3000
+# La app está disponible en http://localhost:3007
 ```
 
 Para detener:
@@ -104,7 +104,7 @@ mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS finanzas;"
 # 4. Arrancar la app
 npm start
 
-# La app está disponible en http://localhost:3000
+# La app está disponible en http://localhost:3007
 ```
 
 ---
