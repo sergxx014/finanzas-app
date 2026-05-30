@@ -139,21 +139,19 @@ Ver siguiente sección.
 ---
 
 ## 👑 Crear un usuario administrador
-
 El endpoint público de registro **nunca acepta `role: admin`** (es ignorado por la validación con `stripUnknown` para evitar escalada de privilegios desde la web). La creación de administradores se hace por línea de comandos:
-
 ```bash
-node scripts/create-admin.js "Nombre del Admin" admin@finanzas.local "MiPass@2026"
+node scripts/create-admin.js "Nombre del Admin" admin@finanzas.local
 ```
+El script pedirá la contraseña de forma interactiva (sin eco en pantalla) y la solicitará dos veces para confirmar.
 
 El script:
 - Crea el usuario con `role='admin'` y `active=true`
 - Si el email ya existe, lo **promociona** a admin (no cambia su contraseña)
 - Valida que la contraseña cumpla la política de complejidad
+- **No acepta la contraseña como argumento** para evitar que quede expuesta en el historial de la shell o en `ps aux`
 
 Tras crearlo, inicia sesión en `/login` y accede al panel en `/admin`.
-
----
 
 ## 🔐 Activar 2FA (verificación en dos pasos)
 
