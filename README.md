@@ -254,7 +254,7 @@ Otras herramientas usadas en la auditoría:
 ## 📁 Estructura del proyecto
 
 ```
-finanzas-v4/
+finanzas-app-main/
 ├── src/
 │   ├── server.js              # Configuración Express, helmet, sesiones, rutas
 │   ├── routes/
