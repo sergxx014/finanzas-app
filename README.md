@@ -47,7 +47,7 @@ Existen dos roles: **usuario** (gestiona sus propias finanzas) y **administrador
 | Validación | Joi 17 | Esquemas declarativos, `stripUnknown` para sanitización |
 | Rate limiting | express-rate-limit 7 | Anti fuerza-bruta en login |
 | Logging | winston 3 | Logs separados de aplicación y seguridad |
-| Tests | jest + supertest | 112 tests de integración (autenticación, autorización, RGPD, CSRF, validación, etc.) |
+| Tests | jest + supertest | 146 tests de integración (autenticación, autorización, RGPD, CSRF, validación, etc.) |
 
 ---
 
@@ -177,7 +177,7 @@ Para **desactivar** 2FA: Mi cuenta → 🔐 Seguridad → **Desactivar 2FA**. Re
 npm test
 ```
 
-El proyecto incluye **149 tests de integración** (Jest + Supertest) que cubren:
+El proyecto incluye **146 tests de integración** (Jest + Supertest) que cubren:
 - Autenticación, login, registro, logout, rate limiting
 - **2FA TOTP**: setup, activación, verificación, desactivación, bypass attempts
 - **Edición de perfil** y **cambio de contraseña** (con 2FA opcional)
@@ -271,7 +271,7 @@ finanzas-v4/
 │       └── validators.js      # Esquemas Joi
 ├── public/                    # HTML, CSS, JS del frontend
 ├── tests/
-│   └── api.test.js            # 112 tests de integración
+│   └── api.test.js            # 146 tests de integración
 ├── scripts/
 │   └── create-admin.js        # CLI para crear/promocionar admins
 ├── docker-compose.yml         # Stack completo (web + MySQL)
