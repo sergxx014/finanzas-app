@@ -64,7 +64,7 @@ Existen dos roles: **usuario** (gestiona sus propias finanzas) y **administrador
 Levanta el servidor web + MySQL en un solo paso:
 
 ```bash
-git clone <url-del-repositorio>
+sudo git clone <url-del-repositorio>
 cd finanzas-app
 
 # 1. Configurar variables de entorno
@@ -73,7 +73,7 @@ cp .env.example .env
 #   node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 
 # 2. Levantar la aplicación
-docker-compose up -d --build
+sudo docker-compose up -d --build
 
 # La app está disponible en http://localhost:3007
 ```
