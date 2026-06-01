@@ -71,7 +71,12 @@ async function stats(req, res) {
     const uid = req.session.userId;
     const { month } = req.query;
     const q = { userId: uid };
-    if (month) q.date = { [Op.gte]: `${month}-01`, [Op.lte]: `${month}-31` };
+    if (month) {
+      const [y, m] = month.split('-').map(Number);
+      const lastDay = new Date(y, m, 0).getDate(); // día 0 del mes siguiente = último día del mes actual
+      const last = String(lastDay).padStart(2, '0');
+      q.date = { [Op.gte]: `${month}-01`, [Op.lte]: `${month}-${last}` };
+    }
     const txs = await db.Transaction.findAll({ where: q });
     const inc = txs.filter(t => t.type === 'income').reduce((s,t) => s + parseFloat(t.amount), 0);
     const exp = txs.filter(t => t.type === 'expense').reduce((s,t) => s + parseFloat(t.amount), 0);
@@ -99,3 +104,4 @@ async function stats(req, res) {
 }
 
 module.exports = { list, create, update, remove, stats, CAT_INCOME, CAT_EXPENSE };
+
