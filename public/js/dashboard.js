@@ -12,6 +12,13 @@ var charts    = {};
 var budgets   = JSON.parse(localStorage.getItem('fa_budgets') || '[]');
 var csrfToken = null;
 
+function lastDayOf(monthStr) {
+  var parts = monthStr.split('-');
+  var y = parseInt(parts[0], 10);
+  var m = parseInt(parts[1], 10);
+  return String(new Date(y, m, 0).getDate()).padStart(2, '0');
+}
+
 /* ─── init ─────────────────────────────────────────────── */
 var now = new Date();
 var monthFilter = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
@@ -237,7 +244,7 @@ function loadTransactions() {
   var fcat  = document.getElementById('ft-cat');
   if (ftype && ftype.value) url += 'type=' + encodeURIComponent(ftype.value) + '&';
   if (fcat  && fcat.value)  url += 'category=' + encodeURIComponent(fcat.value) + '&';
-  if (monthFilter) url += 'from=' + monthFilter + '-01&to=' + monthFilter + '-31&';
+  if (monthFilter) url += 'from=' + monthFilter + '-01&to=' + monthFilter + '-' + lastDayOf(monthFilter) + '&';
 
   api(url).then(function (d) {
     if (!d.ok) return;
@@ -290,7 +297,7 @@ function renderTxTable(txs, compact) {
 function loadBudgets() {
   var mb = budgets.filter(function (b) { return b.month === monthFilter; });
 
-  api('/api/transactions?from=' + monthFilter + '-01&to=' + monthFilter + '-31')
+  api('/api/transactions?from=' + monthFilter + '-01&to=' + monthFilter + '-' + lastDayOf(monthFilter))
     .then(function (d) {
       var txs = d.ok ? d.data : [];
       var html = '';
